@@ -14,9 +14,9 @@ body {
 /* Header */
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 20px;
   background: green;
   backdrop-filter: blur(10px);
   position: sticky;
@@ -27,6 +27,7 @@ header {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .logo span {
@@ -35,6 +36,9 @@ header {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
   gap: 15px;
 }
 
@@ -101,56 +105,6 @@ nav a:hover {
   background: #059669;
 }
 
-/* Responsive Navbar */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  nav a {
-    display: block;
-    padding: 10px 0;
-    width: 100%;
-  }
-}
-
-/* Footer */
-footer {
-  background-color: #001f3f;
-  padding: 30px 20px;
-  text-align: center;
-  color: #ffffff;
-}
-
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.footer-icons {
-  margin-top: 15px;
-}
-
-.footer-icons a {
-  color: #fcd34d;
-  margin: 0 10px;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
-}
-
-.footer-icons a:hover {
-  color: #38bdf8;
-}
-
 /* About Section */
 .about {
   padding: 60px 20px;
@@ -186,40 +140,40 @@ footer {
 
 .about-highlights {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
+  margin-top: 20px;
 }
 
 .about-highlights li {
   font-size: 1rem;
   margin-bottom: 12px;
+  color: #333;
 }
 
 .about-highlights i {
-  color: #0ea5e9;
+  color: #1e3a8a;
   margin-right: 10px;
 }
 
 .about-image {
   flex: 1 1 300px;
   text-align: center;
+  padding: 30px 0;
 }
 
 .about-image img {
   width: 250px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  height: auto;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 5px solid #1e3a8a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-image {
-    margin-top: 20px;
-  }
+.about-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Skills Section */
@@ -417,4 +371,63 @@ footer {
 
 .social-media a:hover {
   color: #facc15;
+}
+
+/* Footer */
+footer {
+  background-color: #001f3f;
+  padding: 30px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-icons {
+  margin-top: 15px;
+}
+
+.footer-icons a {
+  color: #fcd34d;
+  margin: 0 10px;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.footer-icons a:hover {
+  color: #38bdf8;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .projects-section h2,
+  .contact-section h2 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .contact-form {
+    padding: 30px;
+  }
+
+  .social-media a {
+    font-size: 1.8rem;
+  }
 }
